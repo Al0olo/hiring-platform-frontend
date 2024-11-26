@@ -50,8 +50,8 @@ Before you begin, ensure you have installed:
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd user-registration-frontend
+git clone https://github.com/Al0olo/hiring-platform-frontend
+cd hiring-platform-frontend
 ```
 
 2. Install dependencies:
