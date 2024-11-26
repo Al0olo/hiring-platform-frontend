@@ -1,36 +1,166 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hiring System Frontend
 
-## Getting Started
+A modern web application built with Next.js for managing user registrations. This application provides a clean and intuitive interface for creating and managing user profiles with various features and validations.
 
-First, run the development server:
+## Features
 
+### User Registration
+- Full name validation with character limit
+- Date of birth picker
+- Location selection from predefined options
+- Multiple programming skills selection
+- Resume summary with character counter
+- Real-time form validation
+- Comprehensive error handling
+
+### User Management
+- View all registered users in a tabulated format
+- Search functionality across multiple fields
+- Detailed user view in modal
+- Skills displayed as tags
+- Responsive design for all screen sizes
+
+### UI/UX Features
+- Modern, clean interface
+- Form validation feedback
+- Loading states
+- Toast notifications
+- Responsive layout
+- Dark/Light mode support
+
+## Tech Stack
+
+- **Framework:** Next.js 14
+- **Styling:** Tailwind CSS
+- **Components:** shadcn/ui
+- **Form Handling:** React Hook Form
+- **Validation:** Zod
+- **HTTP Client:** Axios
+- **State Management:** React Hooks
+- **Icons:** Lucide React
+- **Notifications:** Sonner
+
+## Prerequisites
+
+Before you begin, ensure you have installed:
+- Node.js (version 18 or later)
+- npm (version 8 or later)
+
+## Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd user-registration-frontend
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install --legacy-peer-deps
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Create a `.env.local` file:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Start the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+The application will be available at `http://localhost:3000`
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── page.tsx                 # Landing page
+│   ├── new-user/
+│   │   └── page.tsx            # User registration form
+│   └── view-users/
+│       └── page.tsx            # Users list view
+├── components/
+│   ├── ui/                     # Reusable UI components
+│   └── shared/                 # Shared components
+├── services/
+│   └── api.ts                  # API service layer
+├── styles/
+│   └── globals.css             # Global styles
+└── types/
+    └── index.ts                # TypeScript definitions
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Available Scripts
 
-## Deploy on Vercel
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run test` - Run tests
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Variable | Description | Default |
+|----------|-------------|---------|
+| NEXT_PUBLIC_API_URL | Backend API URL | http://localhost:3001 |
+
+## API Integration
+
+The frontend communicates with a NestJS backend API. Ensure the backend server is running and accessible at the URL specified in your environment variables.
+
+### Available Endpoints:
+
+- `GET /users` - Fetch all users
+- `POST /users` - Create new user
+- `GET /users/:id` - Get user details
+
+## Form Validation Rules
+
+### Full Name
+- Required
+- Maximum 50 characters
+
+### Date of Birth
+- Required
+- Must be a valid date
+
+### Preferred Location
+- Required
+- Must be one of: Sydney, Melbourne, Brisbane, Adelaide, Perth
+
+### Programming Skills
+- At least one skill must be selected
+- Available options: React, Angular, C#, Java, Ruby, Python
+
+### Resume Summary
+- Required
+
+
+## Error Handling
+
+The application includes comprehensive error handling:
+- Form validation errors
+- API request errors
+- Network errors
+- Loading states
+- User feedback via toast notifications
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [React Hook Form](https://react-hook-form.com/)
